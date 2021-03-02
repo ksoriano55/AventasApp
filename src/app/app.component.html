@@ -1,3 +1,23 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-split-pane contentId="main-content" class="safe-area">
+    <ion-menu side="start" menuId="first" type="overlay" contentId="main-content">
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-menu-toggle *ngFor="let item of MENU" autoHide="false">
+          <ion-item lines="none" routerDirection="root" [routerLink]="item.ruta" routerLinkActive="active">
+            <ion-label>
+              {{item.titulo}}
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
 </ion-app>

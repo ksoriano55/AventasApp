@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'pineo',
+    loadChildren: () => import('./geoposicion/pages/pineo/pineo.module').then( m => m.PineoPageModule)
+  },
 ];
 
 @NgModule({
